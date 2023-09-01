@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="icon" href="to-do-list.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="blurs"></div>
+    <div class="main">
+        
+        <div><h1 class="h1"><span>Tasks</span> <span class="light">List </span></h1></div>
+        <div class="additem">
+            <h1 onclick="showpopup()"><i class="fa-solid fa-circle-plus fa-shake additem"></i></h1>
+                <h1 onclick="showpopup()">Add Item </h1></div>
+            
+        
+    </div>
+    <div id="parent">
+    <button onclick="back()" class="hide">Back</button>
+    <h1 id="noitem">No Items in the list</h1>
+    <div class="CardContainer"></div>
+    <div class="hide" id="singleCard"></div>
+</div>
+    
+
+    <!-- Add task item popup -->
+    <div class="container">
+    <div class="popup hide" id="popup">
+        <h2>Add New List</h2>
+
+        <input type="text" placeholder="Add New List" id="tasknamevalue">
+        <div class="buttonflex">
+
+            <button onclick="addcard()">Add</button>
+            <button onclick="hidepopup()">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="container1 popup1 hide">
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

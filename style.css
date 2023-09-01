@@ -1,0 +1,301 @@
+
+body{
+    padding: 10px 200px;
+    background-color: bisque;
+    /* background-color: rgb(175, 243, 175); */
+    
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+
+}
+.light{
+    font-weight: lighter;
+}
+img{
+    background-color: rgb(16, 76, 128);
+}
+i{
+    font-size: larger;
+}
+.additem{
+    display: flex;
+    cursor: pointer;
+    /* font-size: 15px; */
+  
+    
+}
+.popup{
+    background-color: white;
+    flex-direction: column;
+    height: 230px;
+    width: 460px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 8px;
+    z-index: 50;
+    transition: all 1s ease-in;
+    animation: Popup 0.9s ease-in;
+    position:fixed;
+    top:30%;
+}
+.popup1{
+    background-color: white;
+    flex-direction: column;
+    height: 230px;
+    width: 460px;
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 8px;
+    z-index: 50;
+    transition: all 1s ease-in;
+    animation: Popup 0.9s ease-in;
+    
+    
+}
+.span{ 
+    
+    font-size: 28px;
+    text-align: center;
+    line-height: 50px;
+    
+    
+}
+.div{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    
+    
+}
+
+.markdone{
+    font-size: 15px;
+    height: 30px;
+}
+@keyframes Popup {
+    from {
+        top: 100%;
+        opacity: 0;
+
+    }
+
+    to {
+        top: 50%;
+        opacity: 1;
+
+    }
+
+}
+
+.size{
+    font-size: 40px;
+    position: relative;
+    top: 40%;
+    left:40%;
+    cursor: pointer;
+    
+}
+.del{
+    font-size: 38px;
+    position: relative;
+    top: 80%;
+    left:60%;
+    
+    
+    cursor: pointer;
+}
+.taskname{
+    text-align: center;
+}
+
+input{
+    border: 2px solid;
+    width: 280px;
+    height: 35px;
+    border-radius: 5px;
+    text-align: center;
+}
+input::placeholder{
+    text-align: center;
+}
+button{
+    background-color: tomato;
+    color: white;
+    font-size: 25px;
+    border: 2px solid;
+    padding: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.buttonflex{
+    display: flex;
+    gap:30px;
+}
+h2{
+    color: red;
+}
+.container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:50px ;
+    position: relative;
+    
+    
+}
+.container1{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius:50px ; */
+    position:fixed;
+    top:30%;
+    left:40%
+    
+    
+}
+.blurs{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    height:100%;
+    z-index: 10;
+    display:none;
+}
+.CardContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:10px;
+}
+.taskcontainer{
+    width: 260px;
+    height: 320px;
+    /* background-color: wheat; */
+    background-color: rgb(213, 173, 213);
+    border-radius: 12px;
+    overflow: auto;
+   
+}
+.taskname{
+    font-size: 32px;
+    font-weight: bold;
+}
+.tasknames{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+.addsubbutno{
+    font-size: 10px;
+}
+.hide{
+    display: none;
+}
+@media screen and (min-width:501px) and (max-width:900px){
+    body{
+        padding: 10px 10px;
+    }
+    .h1{
+        font-size: 38px;
+       
+    }
+    .main{
+        flex-direction: row;
+       
+        padding: 10px 15px;
+
+        
+        
+    }
+    #noitem{
+        text-align: center;
+        
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+    }
+    .CardContainer{
+        /* flex-direction: column; */
+        /* align-items: center; */
+        justify-content: space-evenly;
+        width: 100%;
+        gap:17px;
+    }
+    .taskcontainer{
+        width: 220px;
+    }
+    .popup{
+        width: 98%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+       
+    }
+    input{
+        width: 90%;
+    }
+    .popup1{
+        
+        left:2%;
+        width: 96%;
+        
+    }
+}
+@media screen and (min-width:250px) and (max-width:500px){
+    .main{
+        flex-direction: column;
+        align-items: center;
+        
+        
+    }
+    body{
+        padding: 10px 10px;
+        background-color: bisque;
+    }
+    #noitem{
+        text-align: center;
+    }
+    .popup{
+        width: 98%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+       
+    }
+    input{
+        width: 90%;
+    }
+    .CardContainer{
+        /* flex-direction: column; */
+        /* align-items: center; */
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .popup1{
+        
+        left:2%;
+        width: 96%;
+        
+    }
+    .taskcontainer{
+        width: 220px;
+    }
+};
+
