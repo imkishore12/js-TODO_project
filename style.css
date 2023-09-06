@@ -8,7 +8,7 @@ body{
 .main{
     display: flex;
     justify-content: space-between;
-
+    
 }
 .light{
     font-weight: lighter;
@@ -99,16 +99,16 @@ i{
 
 .size{
     font-size: 40px;
-    position: relative;
-    top: 40%;
-    left:40%;
+    position: sticky;
+    bottom: 2%;
+    left:36%;
     cursor: pointer;
     
 }
 .del{
-    font-size: 38px;
-    position: relative;
-    top: 80%;
+    font-size: 39px;
+    position: sticky;
+    bottom: 2%;
     left:60%;
     
     
