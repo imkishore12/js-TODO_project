@@ -112,6 +112,7 @@ i{
     left:60%;
     
     
+    
     cursor: pointer;
 }
 .taskname{
@@ -211,6 +212,10 @@ h2{
 #noitem{
     text-align: center;
 }
+#singleCard{
+    display: flex;
+    justify-content: center
+}
 @media screen and (min-width:501px) and (max-width:900px){
     body{
         padding: 10px 10px;
@@ -260,6 +265,24 @@ h2{
         width: 96%;
         
     }
+    
+.size{
+    font-size: 40px;
+    position: sticky;
+    bottom: 2%;
+    left:35%;
+    cursor: pointer;
+    
+}
+.del{
+    font-size: 39px;
+    position: sticky;
+    bottom: 2%;
+    left:65%;
+    
+    
+    cursor: pointer;
+}
 }
 @media screen and (min-width:250px) and (max-width:500px){
     .main{
@@ -300,5 +323,24 @@ h2{
     .taskcontainer{
         width: 220px;
     }
+    .size{
+        font-size: 40px;
+        position: sticky;
+        bottom: 2%;
+        left:35%;
+        cursor: pointer;
+        
+    }
+    .del{
+        font-size: 39px;
+        position: sticky;
+        bottom: 2%;
+        left:65%;
+        
+        
+        cursor: pointer;
+    }
+    
+    
 };
 

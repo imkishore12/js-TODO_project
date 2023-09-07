@@ -6,6 +6,7 @@ var blurs=document.getElementsByClassName("blurs");
 var subpopupcontainer=document.getElementsByClassName("container1");
 var singleCard=document.getElementById("singleCard");
 var parents=document.getElementById("parent");
+let isSingleCard=false
 // function showpopup(){
 //     //blurs[0].style.display="block";
 //     popup[0].classList.remove("hide");
@@ -31,8 +32,8 @@ function addcard(){
     let cardheading=document.createElement("h1");
     let line=document.createElement("hr");
     let tasklist=document.createElement("div");
-    let addbutton=document.createElement("button");
-    let delbutton=document.createElement("button");
+    let addbutton=document.createElement("i");
+    let delbutton=document.createElement("i");
 
 
     CardContainer[0].appendChild(card);
@@ -58,89 +59,12 @@ function addcard(){
         }
 
     })
-    addbutton.addEventListener("click", ()=>{
-        subpopupcontainer[0].classList.remove("hide");
-        // blurs[0].style.display="block";
-        
-        
-        // popup.classList.remove("hide");
-        // blur.classList.add("hide");
-        //subtaskpopup window
-
-
-        blurs[0].style.display="block";
-        //popup[0].classList.remove("hide");
-       let subaddtaskpopupheading=document.createElement("h3");
-       var subaddtaskpopupname=document.createElement("input");
-       let buttondiv=document.createElement("div");
-       let subaddtaskpopupaddbtn=document.createElement("button");
-       let subaddtaskpopupclosebtn=document.createElement("button");
-
-
-
-
-        subaddtaskpopupname.setAttribute("placeholder","please enter item");
-        subpopupcontainer[0].appendChild(subaddtaskpopupheading);
-        subpopupcontainer[0].appendChild(subaddtaskpopupname);
-        subpopupcontainer[0].appendChild(buttondiv);
-        buttondiv.appendChild(subaddtaskpopupaddbtn);
-        buttondiv.appendChild(subaddtaskpopupclosebtn);
-
-
-        
-        buttondiv.setAttribute("class","buttonflex")
-        subaddtaskpopupheading.innerHTML="Add New Item";
-        subaddtaskpopupaddbtn.innerHTML="Add";
-        subaddtaskpopupclosebtn.innerHTML="Close";
-
-    
-        // subaddtaskpopupaddbtn.addEventListener('click',()=>subaddtaskbtn(tasklist,subaddtaskpopupname))
-        subaddtaskpopupaddbtn.addEventListener('click',()=>{
-            blurs[0].style.display="none";
-            let item=document.createElement('div');
-            let itemtext=document.createElement('span');
-            let markdone=document.createElement('button');
-
-            item.append(itemtext);
-            item.append(markdone);
-
-
-            itemtext.innerHTML=subaddtaskpopupname.value;
-            markdone.innerHTML="mark done";
-            item.setAttribute("class", "div");
-            itemtext.setAttribute("class","span");
-            markdone.setAttribute("class","markdone");
-
-            tasklist.appendChild(item);
-            subpopupcontainer[0].classList.add("hide");
-
-
-
-            subpopupcontainer[0].innerHTML="";
-
-
-        markdone.addEventListener("click",() =>{
-            itemtext.style.textDecoration="line-through";
-            markdone.classList.add("hide");
-        })
-
-
-        })
-            subaddtaskpopupclosebtn.addEventListener("click",() =>{
-            blurs[0].style.display="none";
-            subpopupcontainer[0].classList.add("hide");
-            subpopupcontainer[0].innerHTML="";
-
-        })
-        
-        
-    }); 
+    addbutton.addEventListener("click", ()=>subaddtaskbtn(tasklist)); 
     cardheading.addEventListener("click", ()=>{
-        copysubaddtaskpopname=document.getElementsByTagName("input")[0];
         singleCard.classList.remove("hide");
         CardContainer[0].classList.add("hide");
-        
-        let copycard=card.cloneNode(true);
+        isSingleCard=true
+        var copycard=card.cloneNode(true);
         singleCard.appendChild(copycard);
 
         parents.firstElementChild.classList.remove("hide");
@@ -149,107 +73,8 @@ function addcard(){
             card.remove();
             back();
         })
-
-
-        
-        
-        copycard.lastElementChild.previousElementSibling.addEventListener("click", ()=>{
-            
-                subpopupcontainer[0].classList.remove("hide");
-                // blurs[0].style.display="block";
-                
-                
-                // popup.classList.remove("hide");
-                // blur.classList.add("hide");
-                //subtaskpopup window
-        
-        
-                blurs[0].style.display="block";
-                //popup[0].classList.remove("hide");
-               let subaddtaskpopupheading=document.createElement("h3");
-               var subaddtaskpopupname=document.createElement("input");
-               let buttondiv=document.createElement("div");
-               let subaddtaskpopupaddbtn=document.createElement("button");
-               let subaddtaskpopupclosebtn=document.createElement("button");
-        
-        
-        
-        
-                subaddtaskpopupname.setAttribute("placeholder","please enter item");
-                subpopupcontainer[0].appendChild(subaddtaskpopupheading);
-                subpopupcontainer[0].appendChild(subaddtaskpopupname);
-                subpopupcontainer[0].appendChild(buttondiv);
-                buttondiv.appendChild(subaddtaskpopupaddbtn);
-                buttondiv.appendChild(subaddtaskpopupclosebtn);
-        
-        
-                
-                buttondiv.setAttribute("class","buttonflex")
-                subaddtaskpopupheading.innerHTML="Add New Item";
-                subaddtaskpopupaddbtn.innerHTML="Add";
-                subaddtaskpopupclosebtn.innerHTML="Close";
-                
-                
-
-                subaddtaskpopupaddbtn.addEventListener('click',()=>{
-                    blurs[0].style.display="none";
-                    let item=document.createElement('div');
-                    let itemtext=document.createElement('span');
-                    let markdone=document.createElement('button');
-        
-                    item.append(itemtext);
-                    item.append(markdone);
-        
-        
-                    itemtext.innerHTML=subaddtaskpopupname.value;
-                    markdone.innerHTML="mark done";
-                    item.setAttribute("class", "div");
-                    itemtext.setAttribute("class","span");
-                    markdone.setAttribute("class","markdone");
-        
-                    // copyCard.lastElementChild.previousElementSibling.previousSibling.appendChild(item);
-                    var copy=copycard.lastElementChild.previousElementSibling.previousElementSibling.appendChild(item);
-                    var copy1=copy.cloneNode(true);
-                    tasklist.appendChild(copy1);
-                    // tasklist.appendChild(copycard.lastElementChild.previousElementSibling.previousElementSibling.appendChild(item));
-                    subpopupcontainer[0].classList.add("hide");
-        
-        
-        
-                    subpopupcontainer[0].innerHTML="";
-        
-        
-                    
-                    markdone.addEventListener("click",() =>{
-                        let c=itemtext.style.textDecoration="line-through";
-                         let copy=copycard.lastElementChild.previousElementSibling.previousElementSibling.appendChild(item);
-                        let copy1=copy.cloneNode(true);
-                        copy1.style.textDecoration="line-through";
-                        copy1.lastElementChild.classList.add("hide");
-                        tasklist.appendChild(copy1);
-                        
-                        tasklist.lastElementChild.previousElementSibling.remove();
-                       
-                        markdone.classList.add("hide");
-                    })
-            
-                });
-
-
-
-                
-                
-                subaddtaskpopupclosebtn.addEventListener("click",() =>{
-                    blurs[0].style.display="none";
-                    subpopupcontainer[0].classList.add("hide");
-                    subpopupcontainer[0].innerHTML="";
-        
-                })
-                
-                
-            
-        
-        })
+        const copytasklist=copycard.querySelector('div')
+        copycard.lastElementChild.previousElementSibling.addEventListener("click", ()=>subaddtaskbtn(tasklist,copytasklist))
         
         
         
@@ -262,10 +87,133 @@ function addcard(){
 
 
 
+function subaddtaskbtn(tasklist,copytasklist){
+
+    subpopupcontainer[0].classList.remove("hide");
+    // blurs[0].style.display="block";
+    
+    
+    // popup.classList.remove("hide");
+    // blur.classList.add("hide");
+    //subtaskpopup window
+
+
+    blurs[0].style.display="block";
+    //popup[0].classList.remove("hide");
+   let subaddtaskpopupheading=document.createElement("h3");
+   let subaddtaskpopupname=document.createElement("input");
+   let buttondiv=document.createElement("div");
+   let subaddtaskpopupaddbtn=document.createElement("button");
+   let subaddtaskpopupclosebtn=document.createElement("button");
+
+
+
+
+    subaddtaskpopupname.setAttribute("placeholder","please enter item");
+    subpopupcontainer[0].appendChild(subaddtaskpopupheading);
+    subpopupcontainer[0].appendChild(subaddtaskpopupname);
+    subpopupcontainer[0].appendChild(buttondiv);
+    buttondiv.appendChild(subaddtaskpopupaddbtn);
+    buttondiv.appendChild(subaddtaskpopupclosebtn);
+
+
+    
+    buttondiv.setAttribute("class","buttonflex")
+    subaddtaskpopupheading.innerHTML="Add New Item";
+    subaddtaskpopupaddbtn.innerHTML="Add";
+    subaddtaskpopupclosebtn.innerHTML="Close";
+
+
+    subaddtaskpopupaddbtn.addEventListener('click',()=>additemfunc())
+
+        subaddtaskpopupclosebtn.addEventListener("click",() =>{
+        blurs[0].style.display="none";
+        subpopupcontainer[0].classList.add("hide");
+        subpopupcontainer[0].innerHTML="";
+
+    })
+//add item 
+
+function additemfunc(){
+        blurs[0].style.display="none";
+        let item=document.createElement('div');
+        let itemtext=document.createElement('span');
+        let markdone=document.createElement('button');
+
+        item.append(itemtext);
+        item.append(markdone);
+
+
+        itemtext.innerHTML=subaddtaskpopupname.value;
+        markdone.innerHTML="mark done";
+        item.setAttribute("class", "div");
+        itemtext.setAttribute("class","span");
+        markdone.setAttribute("class","markdone");
+       
+        if (isSingleCard){
+
+        let itemclone=item.cloneNode(true)
+        //###############################cretae here############################
+        // markdone.addEventListener("click",() =>{
+        // copytasklist.itemtext.style.textDecoration="line-through";
+        // markdone.classList.add("hide");
+        
+    // })// we have to edit here
+    // itemclone.lastElementChild.addEventListener("click",()=>{
+    //     console.log(itemclone);
+    //     itemclone.lastElementChild.classList.add("hide")
+    //     itemclone.lastElementChild.previousElementSibling.style.textDecoration="line-through";
+    //     // console.log(co);
+    //     // let co1=co.cloneNode(true);
+        // console.log(co1);
+    //     tasklist.lastElementChild.style.textDecoration="line-through";
+        // tasklist.lastElementChild.
+        // tasklist.appendChild(co1);
+        
+    // })
+     itemclone.lastElementChild.addEventListener("click",()=>{
+        itemclone.lastElementChild.classList.add("hide")
+        itemclone.lastElementChild.previousElementSibling.style.textDecoration="line-through";
+        markdones();
+        console.log(tasklist.lastElementChild)
+     })
+    
+
+
+    //add item in copy card list
+    copytasklist.appendChild(itemclone);
+    
+}
+        tasklist.appendChild(item);
+        
+        subpopupcontainer[0].classList.add("hide");
+
+
+
+        subpopupcontainer[0].innerHTML="";
+
+
+    markdone.addEventListener("click",() =>{
+        // itemtext.style.textDecoration="line-through";
+        // markdone.classList.add("hide");
+        markdones();
+        
+    })
+    function markdones(){
+        itemtext.style.textDecoration="line-through";
+        markdone.classList.add("hide");
+        // itemclone.lastElementChild.previousElementSibling.style.textDecoration="line-through";
+
+    }
+}
+
+    }
 
 function back(){
     parents.firstElementChild.classList.add("hide");
     singleCard.classList.add("hide");
     CardContainer[0].classList.remove("hide");
     singleCard.innerText="";
+    isSingleCard=false
+
 }
